@@ -18,15 +18,12 @@ Injection of this NPM module is the preferred method, e.g.
 yarn add --dev "https://github.com/contractshark/inject-solihint-ci#$COMMIT_REF"
 ```
 
-
-
-
-## Installation
+### Installation
 
 You can install Solhint using **npm**:
 
 ```sh
-npm install -g solhint
+yarn add --dev solhint-ci
 
 # verify that it was installed correctly
 solhint --version
