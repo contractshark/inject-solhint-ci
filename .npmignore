@@ -1,2 +1,7 @@
+Dockerfile/
 test/
 scripts/
+.github/
+.vscode
+CI/
+
