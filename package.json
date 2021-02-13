@@ -13,11 +13,12 @@
     "code-quality",
     "smart-contracts"
   ],
-  "homepage": "https://contractshark.github.io/solhint-ci/",
-  "repository": "https://github.com/contractshark/solhint-ci",
+  "homepage": "https://contractshark.github.io/inject-solhint-ci/",
+  "repository": "https://github.com/contractshark/inject-solhint-ci",
   "scripts": {
     "exec": "./solhint.js",
-    "docs": "node scripts/generate-rule-docs.js"
+    "docs": "node scripts/generate-rule-docs.js",
+     "fmt": "npx prettier --write lib/**/*.js"
   },
   "bin": {
     "solhint": "solhint.js"
@@ -51,9 +52,8 @@
     "mocha": "^7.1.2",
     "mocha-lcov-reporter": "1.3.0",
     "nyc": "^15.0.1",
+    "prettier": "^1.19.1",
     "shelljs": "^0.8.3"
   },
-  "optionalDependencies": {
-    "prettier": "^1.14.3"
-  }
+  "optionalDependencies": {}
 }
