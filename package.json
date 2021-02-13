@@ -16,12 +16,12 @@
   "homepage": "https://contractshark.github.io/inject-solhint-ci/",
   "repository": "https://github.com/contractshark/inject-solhint-ci",
   "scripts": {
-    "exec": "./solhint.js",
+    "exec": "./solhint-ci.js",
     "docs": "node scripts/generate-rule-docs.js",
      "fmt": "npx prettier --write lib/**/*.js"
   },
   "bin": {
-    "solhint": "solhint.js"
+    "solhint-ci": "solhint-ci.js"
   },
   "files": [
     "/conf/",
