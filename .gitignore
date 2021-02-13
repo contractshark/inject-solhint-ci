@@ -1,0 +1,13 @@
+.jekyll-cache
+.DS_Store
+node_modules/
+/.idea/
+test2.sol
+convertLib.sol
+/.nyc_output/
+/coverage/
+/docs/_site/
+/docs/Gemfile*
+antlr4.jar
+/docs/.sass-cache/
+.stryker-tmp/
