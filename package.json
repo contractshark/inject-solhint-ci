@@ -1,6 +1,6 @@
 {
   "name": "solhint-ci",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Solidity Code Linter CI Service",
   "main": "lib/index.js",
   "keywords": [
@@ -18,7 +18,7 @@
   "scripts": {
     "exec": "./solhint-ci.js",
     "docs": "node scripts/generate-rule-docs.js",
-     "fmt": "npx prettier --write lib/**/*.js"
+    "fmt": "npx prettier --write lib/**/*.js"
   },
   "bin": {
     "solhint-ci": "solhint-ci.js"
