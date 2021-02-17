@@ -1,7 +1,4 @@
-# dockerimage buildx
-# continuous-deployment.yml
-#
-
+# ghcr.io/contractshark/inject-solhint-ci:latest
 name: container-ci
 
 on: ['push']
@@ -54,8 +51,8 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
           registry: docker.pkg.github.com
-          repository: contractshark/inject-solhint-ci/action
+          repository: contractshark/inject-solhint-ci:latest
           tag_with_ref: true
