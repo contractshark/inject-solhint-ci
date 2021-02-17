@@ -5,3 +5,12 @@ test/
 scripts/
 .github/
 *.png
+LICENSE
+README.md
+conf/
+lib/
+scripts/
+solhint-ci.js
+solhint-icon.png
+solhint.png
+test/
