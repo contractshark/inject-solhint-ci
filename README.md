@@ -2,7 +2,6 @@
 <h1> SolHint-CI </h1>
 </p>
 <p align="center">
-  By 
 </p>
 
 
