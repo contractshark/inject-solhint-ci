@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="solhint.png">
+<h1> SolHint-CI </h1>
 </p>
 <p align="center">
-  By <a href="https://protofire.io/">Protofire</a>
+  By 
 </p>
 
 
@@ -10,13 +10,38 @@
 
 This is a stripped down version of the Solhint NPM package for CI purposes only. 
 
+Solhint Authors can be found at <a href="https://protofire.io/">Protofire</a>
+
 ## Usage 
 
-Injection of this NPM module is the preferred method, e.g.
+### GitHub Action
+
+```yaml
+name: solhint-ci
+on: [pull_request]
+jobs:
+  solhint:
+    name: runner / solhint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: solhint
+        uses: contractshark/inject-solhint-ci@latest
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter.
+          solhint_input: 'contracts/*.sol'
+
+```
+
+### NPM
+Injection via NPM module, e.g.
 
 ```bash
 yarn add --dev "https://github.com/contractshark/inject-solihint-ci#$COMMIT_REF"
 ```
+
+Usage 
 
 ### Installation
 
@@ -175,63 +200,3 @@ Or disable all validations for a group of lines:
 [Full list with all supported Style Guide Rules](docs/rules.md#style-guide-rules)
 ### Best Practices Rules
 [Full list with all supported Best Practices Rules](docs/rules.md#best-practise-rules)
-
-## Documentation
-
-Related documentation you may find [here](https://protofire.github.io/solhint/).
-
-## IDE Integrations
-
-  - **[Sublime Text 3](https://packagecontrol.io/search/solhint)**
-  - **[Atom](https://atom.io/packages/atom-solidity-linter)**
-  - **[Vim](https://github.com/sohkai/syntastic-local-solhint)**
-  - **[JetBrains IDEA, WebStorm, CLion, etc.](https://plugins.jetbrains.com/plugin/10177-solidity-solhint)**
-  - **[VS Code: Solidity by Juan Blanco](
-         https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)**
-  - **[VS Code: Solidity Language Support by CodeChain.io](
-         https://marketplace.visualstudio.com/items?itemName=kodebox.solidity-language-server)**
-
-## Table of Contents
-
-* [Roadmap](ROADMAP.md): The core project's roadmap - what the core team is looking to work on in the near future.
-* [Contributing](docs/contributing.md): The core Solhint team :heart: contributions. This describes how you can contribute to the Solhint Project.
-* [Shareable configs](docs/shareable-configs.md): How to create and share your own configurations.
-* [Writing plugins](docs/writing-plugins.md): How to extend Solhint with your own rules.
-
-## Plugins
-
-- [solhint-plugin-prettier](https://github.com/fvictorio/solhint-plugin-prettier): Integrate Solhint
-  with the [Solidity plugin for Prettier](https://github.com/prettier-solidity/prettier-plugin-solidity).
-
-## Who uses Solhint?
-[<img src="https://avatars0.githubusercontent.com/u/20820676?s=200&v=4" width="75px" height="75px" alt="OpenZeppelin" title="OpenZeppelin" style="margin: 20px 20px 0 0" />](https://github.com/OpenZeppelin)
-[<img src="https://avatars2.githubusercontent.com/u/28943015?s=200&v=4" width="75px" height="75px" alt="POA Network - Public EVM Sidechain" title="POA Network - Public EVM Sidechain" style="margin: 20px 20px 0 0" />](https://github.com/poanetwork) [<img src="https://avatars3.githubusercontent.com/u/24832717?s=200&v=4" width="75px" height="75px" alt="0x" title="0x" style="margin: 20px 20px 0 0" />](https://github.com/0xProject) [<img src="https://avatars1.githubusercontent.com/u/24954468?s=200&v=4" width="75px" height="75px" alt="GNOSIS" title="GNOSIS" style="margin: 20px 20px 0 0"/>](https://github.com/gnosis)
-
-### Projects
-
-- OpenZeppelin:
-  - [openzeppelin-contracts](https://github.com/OpenZeppelin/openzeppelin-contracts)
-- POA Network - Public EVM Sidechain:
-  - [Proof of Physical Address (PoPA)](https://github.com/poanetwork/poa-popa)
-  - [Proof of Bank Account (PoBA)](https://github.com/poanetwork/poa-poba)
-- [0x](https://github.com/0xProject/0x-monorepo/tree/development/contracts)
-- Gnosis:
-  - [Gnosis Prediction Market Contracts](https://github.com/gnosis/pm-contracts)
-  - [The DutchX decentralized trading protocol](https://github.com/gnosis/dex-contracts)
-
-## Acknowledgements
-
-The Solidity parser used is [`@solidity-parser/parser`](https://github.com/solidity-parser/parser).
-
-## Licence
-
-MIT
-
-## Back us
-Solhint is free to use and open-sourced. If you value our effort and feel like helping us to keep pushing this tool forward, you can send us a small donation. We'll highly appreciate it :)
-
-[![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0xe8cdf02efd8ab0a490d7b2cb13553389c9bc932e)](https://en.cryptobadges.io/donate/0xe8cdf02efd8ab0a490d7b2cb13553389c9bc932e)
-
-## Related projects
-
-- [eth-cli](https://github.com/protofire/eth-cli): CLI swiss army knife for Ethereum developers.
