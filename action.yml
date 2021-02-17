@@ -1,0 +1,44 @@
+name: 'Run solhint with contracthsark'
+description: '🦈 Run solhint with contractshark on pull requests to improve code review experience.'
+author: 'contractshark'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+  level:
+    description: 'Report level for contractshark [info,warning,error]'
+    default: 'error'
+  fail_on_error:
+    description: 'Whether contractshark should fail when errors are found. [true,false] - This is useful for failing CI builds.'
+    default: 'false'
+  filter_mode:
+    description: 'contractshark filter mode [added, diff_context, file, nofilter]'
+    default: 'added'
+  name:
+    description: 'Report name'
+    default: 'solhint'
+  packages:
+    description: 'Additional NPM packages'
+    default: ''
+  reporter:
+    description: |
+      Reporter of contractshark command [github-pr-check,github-pr-review,github-check].
+      Default is github-pr-check.
+      github-pr-review can use Markdown and add a link to rule page in contractshark reports.
+    default: 'github-pr-check'
+  solhint_input:
+    description: "Files or glob. Default: `**/*.sol`.  It's same as `[input]` of solhint."
+    default: '**/*.sol'
+  solhint_config:
+    description: "It's same as `--config` flag of solhint."
+  solhint_ignore:
+    description: "Files or glob. It's the same as `--ignore-pattern` of solhint"
+  workdir:
+    description: "The directory from which to look for and run solhint. Default: '.'"
+    default: '.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'alert-triangle'
+  color: 'yellow'
