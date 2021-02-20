@@ -18,7 +18,10 @@
   "scripts": {
     "exec": "./solhint-ci.js",
     "docs": "node scripts/generate-rule-docs.js",
-    "fmt": "npx prettier --write lib/**/*.js"
+    "fmt": "npx prettier --write lib/**/*.js",
+     "coverage": "cross-env CODE_COVERAGE=true hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"./test/{integration,unit}/**/*.ts\"",
+    "lint": "yarn run lint:sol && yarn run lint:ts && yarn run prettier:list-different",
+    "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
   },
   "bin": {
     "solhint-ci": "solhint-ci.js"
